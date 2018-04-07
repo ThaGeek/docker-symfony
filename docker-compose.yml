@@ -4,7 +4,7 @@ services:
     db:
         image: mysql
         volumes:
-            - "./.data/db:/var/lib/mysql"
+            - "./.data/shop:/var/lib/mysql"
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
             MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -26,13 +26,3 @@ services:
             - php
         volumes:
             - ./logs/nginx/:/var/log/nginx
-    elk:
-        image: willdurand/elk
-        ports:
-            - 81:80
-        volumes:
-            - ./elk/logstash:/etc/logstash
-            - ./elk/logstash/patterns:/opt/logstash/patterns
-        volumes_from:
-            - php
-            - nginx
