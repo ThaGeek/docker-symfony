@@ -33,6 +33,7 @@ Docker-symfony gives you everything you need for developing Symfony application.
     ```bash
     $ docker-compose exec php bash
     $ composer install
+    $ sf3 doctrine:database:create --env=prod
     $ sf3 cache:clear --env=prod
     $ chmod -R 777 var/cache var/logs var/sessions
     $ php bin/console doctrine:migrations:migrate --env=prod
